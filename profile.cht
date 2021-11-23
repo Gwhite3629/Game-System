@@ -1,0 +1,168 @@
+CONTENTS STYLE
+    contents
+        inventory
+            char *Identity
+            uint16_t state
+            uint8_t size
+            item
+                uint8_t position
+                char *Name
+                char *Name
+                uint32_t Health
+                uint32_t Damage
+                uint32_t Hunger
+                uint32_t Poison
+                uint32_t Regen
+                char *Description
+                uint32_t id
+            item
+        inventory
+        stat
+            save
+                uint Strength
+                uint Dexterity
+                uint Constitution
+                uint Intelligence
+                uint Wisdom
+                uint Charisma
+            save
+            skill
+                bool Acrobatics;
+                bool AnimalHandling;
+                bool Arcana;
+                bool Athletics;
+                bool Deception;
+                bool History;
+                bool Insight;
+                bool Intimidation;
+                bool Investigation;
+                bool Medicine;
+                bool Nature;
+                bool Perception;
+                bool Persuasion;
+                bool Religion;
+                bool SleightOfHand;
+                bool Stealth;
+                bool Survival;
+            skill
+            uint Strength;
+            uint Dexterity;
+            uint Constitution;
+            uint Intelligence;
+            uint Wisdom;
+            uint Charisma;
+        stat
+        uint Inspiration;
+        uint Proficiency;
+        uint Initiative;
+        uint Speed;
+        uint ArmorClass;
+        uint MaxHP;
+        uint CurHP;
+        uint TempHP;
+        uint TotDice;
+        uint HitDice;
+        char *Personality;
+        char *Ideals;
+        char *Bonds;
+        char *Flaws;
+        uint numattacks
+        attack
+            char *Name;
+            uint Atk;
+            DamageType Type;
+        attack
+    contents
+
+#Grady
+    Grady
+    0
+    3
+    3
+    Broadsword
+    Sword
+    500
+    15
+    0
+    0
+    0
+    NULL
+    0
+    14
+    LongBow
+    Bow
+    350
+    10
+    0
+    0
+    0
+    NULL
+    1
+    0
+    EarthStaff
+    Wand
+    50
+    30
+    0
+    0
+    0
+    NULL
+    2
+    10
+    10
+    10
+    10
+    10
+    10
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    0
+    10
+    10
+    10
+    10
+    10
+    10
+    6
+    6
+    6
+    6
+    6
+    25
+    25
+    0
+    0
+    3
+    NULL
+    NULL
+    NULL
+    NULL
+    3
+    Punch
+    12
+    1
+    MagicMissile
+    10
+    0
+    Throwrock
+    5
+    2
+#Grady
+#Tim
+    #contents
+    #contents
+#Tim
