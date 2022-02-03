@@ -1,3 +1,18 @@
+/*!
+ * @file Character.c
+ * 
+ * @brief This file keeps track of all character related functions
+ * 
+ * @author Grady White
+ * 
+ * @date 2/2/2022
+ * 
+ * Functions in this file are responsible for initializing character
+ * data from a file, writing character data to a file, and creating
+ * a new character.
+ * 
+ */
+
 #include "types.h"
 #include "file.h"
 #include "inventory.h"
@@ -7,6 +22,20 @@
 #include <string.h>
 #include <stdbool.h>
 
+
+/*!
+ * @brief Initialize a character from a file
+ * 
+ * Primary function for loading character data from a save file.
+ * Characters inventory and stats are loaded into the Character struct.  
+ * 
+ * @param[in,out] character Pointer to a Character type pointer which contains all
+ *                          relevant character data
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 uint init_char(Character **character)
 {
     char *locator;
@@ -213,6 +242,20 @@ fail:
     return ret;
 }
 
+/*!
+ * @brief Save a Character struct to a save file.
+ * 
+ * Primary function for saving character data to a save file.
+ * Characters inventory and stats are saved according to the 
+ * format in the profile.cht file.
+ * 
+ * @param[in] character Character struct containing all current character data
+ *                      to save.
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 uint write_char(Character character)
 {
     uint ret = SUCCESS;

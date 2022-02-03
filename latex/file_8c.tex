@@ -1,0 +1,55 @@
+\hypertarget{file_8c}{}\doxysection{file.\+c File Reference}
+\label{file_8c}\index{file.c@{file.c}}
+
+
+This function keeps track of file related events.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{file_8c_a76babef28901b467bccafe1e1bc719da}{find\+\_\+event}} (FILE $\ast$fd, fpos\+\_\+t $\ast$prof\+\_\+start, fpos\+\_\+t $\ast$prof\+\_\+end, char $\ast$locator)
+\begin{DoxyCompactList}\small\item\em Searches a file for an event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This function keeps track of file related events. 
+
+\begin{DoxyAuthor}{Author}
+Grady White
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/2/2022
+\end{DoxyDate}
+Functions in this file are responsible for specific file operations such as file searching, ordering, and concatenation. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{file_8c_a76babef28901b467bccafe1e1bc719da}\label{file_8c_a76babef28901b467bccafe1e1bc719da}} 
+\index{file.c@{file.c}!find\_event@{find\_event}}
+\index{find\_event@{find\_event}!file.c@{file.c}}
+\doxysubsubsection{\texorpdfstring{find\_event()}{find\_event()}}
+{\footnotesize\ttfamily int find\+\_\+event (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fd,  }\item[{fpos\+\_\+t $\ast$}]{prof\+\_\+start,  }\item[{fpos\+\_\+t $\ast$}]{prof\+\_\+end,  }\item[{char $\ast$}]{locator }\end{DoxyParamCaption})}
+
+
+
+Searches a file for an event. 
+
+This function searches through a file starting at the current file position in the FILE stream sent. Once the event has been found its position is written to the prof\+\_\+start variable and once it has been found again the position is written to prof\+\_\+end. The locator variable is the event to compare against.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & The file to locate the event\\
+\hline
+\mbox{\texttt{ in,out}}  & {\em prof\+\_\+start} & Position of event in file \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em prof\+\_\+end} & Second position of event in file\\
+\hline
+\mbox{\texttt{ out}}  & {\em locator} & Event to search for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}

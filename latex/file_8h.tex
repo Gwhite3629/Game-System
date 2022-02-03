@@ -1,0 +1,37 @@
+\hypertarget{file_8h}{}\doxysection{file.\+h File Reference}
+\label{file_8h}\index{file.h@{file.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{file_8h_a311963a97ba092989b718eaaa8c0ff77}{find\+\_\+event}} (FILE $\ast$fd, fpos\+\_\+t $\ast$char\+\_\+start, fpos\+\_\+t $\ast$char\+\_\+end, char $\ast$locator)
+\begin{DoxyCompactList}\small\item\em Searches a file for an event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{file_8h_a311963a97ba092989b718eaaa8c0ff77}\label{file_8h_a311963a97ba092989b718eaaa8c0ff77}} 
+\index{file.h@{file.h}!find\_event@{find\_event}}
+\index{find\_event@{find\_event}!file.h@{file.h}}
+\doxysubsubsection{\texorpdfstring{find\_event()}{find\_event()}}
+{\footnotesize\ttfamily int find\+\_\+event (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fd,  }\item[{fpos\+\_\+t $\ast$}]{prof\+\_\+start,  }\item[{fpos\+\_\+t $\ast$}]{prof\+\_\+end,  }\item[{char $\ast$}]{locator }\end{DoxyParamCaption})}
+
+
+
+Searches a file for an event. 
+
+This function searches through a file starting at the current file position in the FILE stream sent. Once the event has been found its position is written to the prof\+\_\+start variable and once it has been found again the position is written to prof\+\_\+end. The locator variable is the event to compare against.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & The file to locate the event\\
+\hline
+\mbox{\texttt{ in,out}}  & {\em prof\+\_\+start} & Position of event in file \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em prof\+\_\+end} & Second position of event in file\\
+\hline
+\mbox{\texttt{ out}}  & {\em locator} & Event to search for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}

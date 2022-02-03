@@ -1,0 +1,35 @@
+var types_8h =
+[
+    [ "SavingThrows", "struct_saving_throws.html", "struct_saving_throws" ],
+    [ "Skills", "struct_skills.html", "struct_skills" ],
+    [ "Types", "struct_types.html", "struct_types" ],
+    [ "Items", "struct_items.html", "struct_items" ],
+    [ "Inventory", "struct_inventory.html", "struct_inventory" ],
+    [ "Attack", "struct_attack.html", "struct_attack" ],
+    [ "Stats", "struct_stats.html", "struct_stats" ],
+    [ "Character", "struct_character.html", "struct_character" ],
+    [ "BADCHAR", "group___error_codes.html#gad61451d198f68fe9a412b0db5eab64c5", null ],
+    [ "DROPERR", "group___error_codes.html#ga489d0d535728ce4f63fca01f23941bfd", null ],
+    [ "ITEMERR", "group___error_codes.html#ga65236f4ae2f2a8e8ef831bdbb632bac3", null ],
+    [ "MEMERROR", "group___error_codes.html#gaf6b9f7f08c05ed993ec774b6e685af15", null ],
+    [ "NOPARAM", "group___error_codes.html#ga6080016812bf04d6249087e62f227dff", null ],
+    [ "SUCCESS", "group___error_codes.html#gaa90cac659d18e8ef6294c7ae337f6b58", null ],
+    [ "uint", "types_8h.html#ad46b2ebcd4c426b06cda147ddc1001e7", null ],
+    [ "VIEWERR", "group___error_codes.html#gaf2ad04799d018f82b98ea78e48be6331", null ],
+    [ "WARNFULL", "group___error_codes.html#gac88fdd3e49e082262423de8c908c37a3", null ],
+    [ "Attack", "types_8h.html#a3aa9d82c41f2272c0254a70aea2c2f7c", null ],
+    [ "Character", "types_8h.html#ad5210cad5f94bd0654d32e36a12323ab", null ],
+    [ "DamageType", "types_8h.html#a5dce68cf554de45e675a034bfd36d2f0", null ],
+    [ "err", "types_8h.html#aa99d555b1aeca1efdd664acdb5f18a83", null ],
+    [ "Inv", "types_8h.html#ae9b1fb5248971a83651da66d486ed101", null ],
+    [ "Item", "types_8h.html#aea163130bb2e297b558b16337ecaaceb", null ],
+    [ "SavingThrows", "types_8h.html#a602f9510ff478ac22ddd0bdff6dcdb99", null ],
+    [ "Skills", "types_8h.html#ac7093a7d1a76795538a8134b10d3bad0", null ],
+    [ "Stats", "types_8h.html#ac1de6abcbdee05721138a59219fe9c94", null ],
+    [ "Type", "types_8h.html#a1a95da446dccbed1bf32d0cbb2c8c53f", null ],
+    [ "DamageType", "types_8h.html#afce48e0416f4e1a1a8c79629bbbf602d", [
+      [ "Magic", "types_8h.html#afce48e0416f4e1a1a8c79629bbbf602daae7c23f3aa34e1c48bae132495512b1f", null ],
+      [ "Melee", "types_8h.html#afce48e0416f4e1a1a8c79629bbbf602da529f9ed83ab5629953645901826698f3", null ],
+      [ "Ranged", "types_8h.html#afce48e0416f4e1a1a8c79629bbbf602da2d3a94a8bafdf7341d5eff2796682fd3", null ]
+    ] ]
+];

@@ -1,3 +1,17 @@
+/*!
+ * @file inventory.c
+ * 
+ * @brief This function is responsible for all inventory operations.
+ * 
+ * @author Grady White
+ * 
+ * @date 2/2/2022
+ * 
+ * Functions in this file are responsible for specific inventory
+ * management operations and organization.
+ * 
+ */
+
 #include "types.h"
 #include "inventory.h"
 
@@ -6,6 +20,21 @@
 #include <string.h>
 #include <stdbool.h>
 
+/*!
+ * @brief Takes an item from one inventory to another
+ * 
+ * Takes an item from source inventory and moves it to the first
+ * open location in the destination inventory.
+ * 
+ * @param[in] index Location of item to take
+ * 
+ * @param[in,out] source Inventory containing target item
+ * @param[in,out] destination Inventory to accept item
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 err take_Item(Inv *source, Inv *destination, uint8_t index)
 {
   int i = 0;
@@ -37,6 +66,20 @@ err take_Item(Inv *source, Inv *destination, uint8_t index)
          destination->slots[i].position, destination->identity);
   return 0;
 }
+
+/*!
+ * @brief Places an item into destination inventory
+ * 
+ * Places item into the first open location in destination inventory.
+ * 
+ * @param[in] item Item to place in inventory
+ * 
+ * @param[in,out] destination Inventory to accept item
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 err get_Item(Inv *destination, Item item)
 {
   int i = 0;
@@ -63,6 +106,18 @@ err get_Item(Inv *destination, Item item)
          destination->slots[i].position);
   return 0;
 }
+
+/*!
+ * @brief Prints formatted inventory contents
+ * 
+ * Prints all items in an inventory in order by index
+ * 
+ * @param[in] source Inventory to view
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 err view_inv(Inv *source)
 {
   int i = 0;
@@ -77,6 +132,21 @@ err view_inv(Inv *source)
   }
   return 0;
 }
+
+/*!
+ * @brief Gets an item from a specifc index
+ * 
+ * Function displays the inventory and asks the user to input
+ * the desired index. Index is set and function returns.
+ * 
+ * @param[in] source Inventory to get item from
+ * 
+ * @param[out] index Index of item
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 err sel_Item(uint8_t *index, Inv *source)
 {
   bool exit = 0;
@@ -99,6 +169,20 @@ err sel_Item(uint8_t *index, Inv *source)
   }
   return 0;
 }
+
+/*!
+ * @brief Removes item from inventory
+ * 
+ * This function created a Noting item and sets the index to that value
+ * 
+ * @param[in] index Index of item to delete
+ * 
+ * @param[in,out] source Inventory to delete item from
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 err del_Item(Inv *source, uint8_t index)
 {
   Item Nothing;
@@ -115,6 +199,18 @@ err del_Item(Inv *source, uint8_t index)
   return 0;
 }
 
+/*!
+ * @brief Allocates character struct
+ * 
+ * This function gives all pointers and arrays in the Character struct
+ * their own heap memory.
+ * 
+ * @param[in,out] character Double dereferenced pointer to Character
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 err alloc_char(Character **character)
 {
   int i;
@@ -213,6 +309,18 @@ fail:
   clean_char(character);
   return ret;
 }
+
+/*!
+ * @brief Destroys Character struct
+ * 
+ * This function frees all memory allocated to a character.
+ * 
+ * @param[in,out] character Character to be destroyed
+ * 
+ * @returns	The function returns SUCCESS if there are no errors, otherwise it returns
+ *          errors according to the standard.
+ * 
+ */
 err clean_char(Character **character)
 {
   uint i;

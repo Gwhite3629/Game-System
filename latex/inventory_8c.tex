@@ -1,0 +1,194 @@
+\hypertarget{inventory_8c}{}\doxysection{inventory.\+c File Reference}
+\label{inventory_8c}\index{inventory.c@{inventory.c}}
+
+
+This function is responsible for all inventory operations.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inventory.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} \mbox{\hyperlink{inventory_8c_aa59628ec9b5a050851e2fcd69383ed1f}{take\+\_\+\+Item}} (\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$source, \mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$destination, uint8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Takes an item from one inventory to another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} \mbox{\hyperlink{inventory_8c_a70dfb5e7c22e67dc9c8de19614268db9}{get\+\_\+\+Item}} (\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$destination, \mbox{\hyperlink{types_8h_aea163130bb2e297b558b16337ecaaceb}{Item}} item)
+\begin{DoxyCompactList}\small\item\em Places an item into destination inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} \mbox{\hyperlink{inventory_8c_a833096e7406d80866fc961455392dea9}{view\+\_\+inv}} (\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$source)
+\begin{DoxyCompactList}\small\item\em Prints formatted inventory contents. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} \mbox{\hyperlink{inventory_8c_a01437d5f4108447f4ac6f385cb0cb935}{sel\+\_\+\+Item}} (uint8\+\_\+t $\ast$index, \mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$source)
+\begin{DoxyCompactList}\small\item\em Gets an item from a specifc index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} \mbox{\hyperlink{inventory_8c_a6f312c2ffc2286a5eefc8d3c5d0bdf6e}{del\+\_\+\+Item}} (\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$source, uint8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Removes item from inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} \mbox{\hyperlink{inventory_8c_aac7cb369d6bc594fef9f1812033f4744}{alloc\+\_\+char}} (\mbox{\hyperlink{struct_character}{Character}} $\ast$$\ast$character)
+\begin{DoxyCompactList}\small\item\em Allocates character struct. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} \mbox{\hyperlink{inventory_8c_ac8cdbd3dd86036c57800e11463a3d2a0}{clean\+\_\+char}} (\mbox{\hyperlink{struct_character}{Character}} $\ast$$\ast$character)
+\begin{DoxyCompactList}\small\item\em Destroys \mbox{\hyperlink{struct_character}{Character}} struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This function is responsible for all inventory operations. 
+
+\begin{DoxyAuthor}{Author}
+Grady White
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/2/2022
+\end{DoxyDate}
+Functions in this file are responsible for specific inventory management operations and organization. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{inventory_8c_aac7cb369d6bc594fef9f1812033f4744}\label{inventory_8c_aac7cb369d6bc594fef9f1812033f4744}} 
+\index{inventory.c@{inventory.c}!alloc\_char@{alloc\_char}}
+\index{alloc\_char@{alloc\_char}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{alloc\_char()}{alloc\_char()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} alloc\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}} $\ast$$\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Allocates character struct. 
+
+This function gives all pointers and arrays in the \mbox{\hyperlink{struct_character}{Character}} struct their own heap memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em character} & Double dereferenced pointer to \mbox{\hyperlink{struct_character}{Character}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_ac8cdbd3dd86036c57800e11463a3d2a0}\label{inventory_8c_ac8cdbd3dd86036c57800e11463a3d2a0}} 
+\index{inventory.c@{inventory.c}!clean\_char@{clean\_char}}
+\index{clean\_char@{clean\_char}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{clean\_char()}{clean\_char()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} clean\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}} $\ast$$\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Destroys \mbox{\hyperlink{struct_character}{Character}} struct. 
+
+This function frees all memory allocated to a character.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em character} & \mbox{\hyperlink{struct_character}{Character}} to be destroyed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a6f312c2ffc2286a5eefc8d3c5d0bdf6e}\label{inventory_8c_a6f312c2ffc2286a5eefc8d3c5d0bdf6e}} 
+\index{inventory.c@{inventory.c}!del\_Item@{del\_Item}}
+\index{del\_Item@{del\_Item}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{del\_Item()}{del\_Item()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} del\+\_\+\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$}]{source,  }\item[{uint8\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Removes item from inventory. 
+
+This function created a Noting item and sets the index to that value
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em index} & Index of item to delete\\
+\hline
+\mbox{\texttt{ in,out}}  & {\em source} & \mbox{\hyperlink{struct_inventory}{Inventory}} to delete item from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a70dfb5e7c22e67dc9c8de19614268db9}\label{inventory_8c_a70dfb5e7c22e67dc9c8de19614268db9}} 
+\index{inventory.c@{inventory.c}!get\_Item@{get\_Item}}
+\index{get\_Item@{get\_Item}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{get\_Item()}{get\_Item()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} get\+\_\+\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{types_8h_aea163130bb2e297b558b16337ecaaceb}{Item}}}]{item }\end{DoxyParamCaption})}
+
+
+
+Places an item into destination inventory. 
+
+Places item into the first open location in destination inventory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em item} & Item to place in inventory\\
+\hline
+\mbox{\texttt{ in,out}}  & {\em destination} & \mbox{\hyperlink{struct_inventory}{Inventory}} to accept item\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a01437d5f4108447f4ac6f385cb0cb935}\label{inventory_8c_a01437d5f4108447f4ac6f385cb0cb935}} 
+\index{inventory.c@{inventory.c}!sel\_Item@{sel\_Item}}
+\index{sel\_Item@{sel\_Item}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{sel\_Item()}{sel\_Item()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} sel\+\_\+\+Item (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{index,  }\item[{\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$}]{source }\end{DoxyParamCaption})}
+
+
+
+Gets an item from a specifc index. 
+
+Function displays the inventory and asks the user to input the desired index. Index is set and function returns.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & \mbox{\hyperlink{struct_inventory}{Inventory}} to get item from\\
+\hline
+\mbox{\texttt{ out}}  & {\em index} & Index of item\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_aa59628ec9b5a050851e2fcd69383ed1f}\label{inventory_8c_aa59628ec9b5a050851e2fcd69383ed1f}} 
+\index{inventory.c@{inventory.c}!take\_Item@{take\_Item}}
+\index{take\_Item@{take\_Item}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{take\_Item()}{take\_Item()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} take\+\_\+\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$}]{destination,  }\item[{uint8\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Takes an item from one inventory to another. 
+
+Takes an item from source inventory and moves it to the first open location in the destination inventory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em index} & Location of item to take\\
+\hline
+\mbox{\texttt{ in,out}}  & {\em source} & \mbox{\hyperlink{struct_inventory}{Inventory}} containing target item \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em destination} & \mbox{\hyperlink{struct_inventory}{Inventory}} to accept item\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{inventory_8c_a833096e7406d80866fc961455392dea9}\label{inventory_8c_a833096e7406d80866fc961455392dea9}} 
+\index{inventory.c@{inventory.c}!view\_inv@{view\_inv}}
+\index{view\_inv@{view\_inv}!inventory.c@{inventory.c}}
+\doxysubsubsection{\texorpdfstring{view\_inv()}{view\_inv()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}} view\+\_\+inv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} $\ast$}]{source }\end{DoxyParamCaption})}
+
+
+
+Prints formatted inventory contents. 
+
+Prints all items in an inventory in order by index
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & \mbox{\hyperlink{struct_inventory}{Inventory}} to view\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}

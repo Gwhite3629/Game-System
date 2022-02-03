@@ -1,0 +1,239 @@
+\hypertarget{struct_character}{}\doxysection{Character Struct Reference}
+\label{struct_character}\index{Character@{Character}}
+
+
+A struct that defines a character.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} \mbox{\hyperlink{struct_character_adc43cf0bb90b3b6f2891f0b997c58f38}{Inventory}}
+\begin{DoxyCompactList}\small\item\em Characters inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_stats}{Stats}} \mbox{\hyperlink{struct_character_acf0648919029be5940824de943daa000}{stat}}
+\begin{DoxyCompactList}\small\item\em Characters stats. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_ab104f88988aaf3dbdc92809664999f20}{Inspiration}}
+\begin{DoxyCompactList}\small\item\em Inspiration stat, variable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_a4a5e83adb8b566558a472da6c776a870}{Proficiency}}
+\begin{DoxyCompactList}\small\item\em Proficiency stat, variable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_a3c15c425b3acd20f9472fea09f55b5ee}{Initiative}}
+\begin{DoxyCompactList}\small\item\em Initiative stat, variable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_a82ac748a3d06d0ccfec79b7f4376bb40}{Speed}}
+\begin{DoxyCompactList}\small\item\em Speed stat, static. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_aa8e32011eb7ae62276e32e5b89095d9e}{Armor\+Class}}
+\begin{DoxyCompactList}\small\item\em Armor class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_aa9232d5add01105f586733f839a0c915}{Max\+HP}}
+\begin{DoxyCompactList}\small\item\em Current maximum health points. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_a5dea4a6fd73992ca2c21950372f59b35}{Cur\+HP}}
+\begin{DoxyCompactList}\small\item\em Current health points. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_a71ff2eb2c88dd92d5a3c0988517ce64d}{Temp\+HP}}
+\begin{DoxyCompactList}\small\item\em Temporary health points. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_a19bf0f168358c868c49d787146a1546d}{Tot\+Dice}}
+\begin{DoxyCompactList}\small\item\em Maximum number of attack dice. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{struct_character_ae6c5d149542cc58cacdf7dfaf7a00df8}{Hit\+Dice}}
+\begin{DoxyCompactList}\small\item\em Current number of attack dice. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{struct_character_a64ff661d53cc294521ff0c386b47b4fa}{Personality}}
+\begin{DoxyCompactList}\small\item\em Personality description. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{struct_character_ac7c243af8aa2cedfb150932ee23512b9}{Ideals}}
+\begin{DoxyCompactList}\small\item\em Ideals description. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{struct_character_ad4cfca7b7c58cb83f7118ca1b731e5b1}{Bonds}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_character}{Character}} bonds. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{struct_character_a07d4039b5ed5d6f8713a4193f61b77f6}{Flaws}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_character}{Character}} flaws. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_attack}{Attack}} $\ast$ \mbox{\hyperlink{struct_character_ac7bc68b308d53c2464fda460d63ce5b4}{Attacks}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_character}{Character}} attacks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct that defines a character. 
+
+Characters are defined by many different structures. Each character has their own unique inventory. Characters also have their own stats and attacks. \mbox{\hyperlink{struct_stats}{Stats}} can be improved and attacks can be learned and improved.
+
+Variable stats are situation dependent and set depending on global environment changes as well as challenges to their ideals and character bonds. These are determined dynamically and changed with certain events defined elsewhere.
+
+Speed and armor class are determined at character creation. Armor class can be changed depending on certain training events. Speed is used to determine a characters ability to make sudden actions.
+
+Maximum health points can be increased through potions, training, magic and other systems. Temporary health points arise through external buffs or debuffs. Hit dice are the number of dice a character can roll to determine damage in a turn. Dice are lost through tiring. Dice are recovered up to total dice through rest.
+
+Personality, Ideals, Bonds, and Flaws are used to determine situational variables like character interactions and can cause bufs or debuffs. Personality is a simple description that other characters receive upon meeting. Ideals determine a characters affinity to certain factions and other personality traits. Bonds determine other characters who grant buffs. Flaws indicate specific personality traits that can cause debuffs. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_character_aa8e32011eb7ae62276e32e5b89095d9e}\label{struct_character_aa8e32011eb7ae62276e32e5b89095d9e}} 
+\index{Character@{Character}!ArmorClass@{ArmorClass}}
+\index{ArmorClass@{ArmorClass}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{ArmorClass}{ArmorClass}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Armor\+Class}
+
+
+
+Armor class. 
+
+\mbox{\Hypertarget{struct_character_ac7bc68b308d53c2464fda460d63ce5b4}\label{struct_character_ac7bc68b308d53c2464fda460d63ce5b4}} 
+\index{Character@{Character}!Attacks@{Attacks}}
+\index{Attacks@{Attacks}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Attacks}{Attacks}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_attack}{Attack}}$\ast$ Attacks}
+
+
+
+\mbox{\hyperlink{struct_character}{Character}} attacks. 
+
+\mbox{\Hypertarget{struct_character_ad4cfca7b7c58cb83f7118ca1b731e5b1}\label{struct_character_ad4cfca7b7c58cb83f7118ca1b731e5b1}} 
+\index{Character@{Character}!Bonds@{Bonds}}
+\index{Bonds@{Bonds}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Bonds}{Bonds}}
+{\footnotesize\ttfamily char$\ast$ Bonds}
+
+
+
+\mbox{\hyperlink{struct_character}{Character}} bonds. 
+
+\mbox{\Hypertarget{struct_character_a5dea4a6fd73992ca2c21950372f59b35}\label{struct_character_a5dea4a6fd73992ca2c21950372f59b35}} 
+\index{Character@{Character}!CurHP@{CurHP}}
+\index{CurHP@{CurHP}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{CurHP}{CurHP}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Cur\+HP}
+
+
+
+Current health points. 
+
+\mbox{\Hypertarget{struct_character_a07d4039b5ed5d6f8713a4193f61b77f6}\label{struct_character_a07d4039b5ed5d6f8713a4193f61b77f6}} 
+\index{Character@{Character}!Flaws@{Flaws}}
+\index{Flaws@{Flaws}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Flaws}{Flaws}}
+{\footnotesize\ttfamily char$\ast$ Flaws}
+
+
+
+\mbox{\hyperlink{struct_character}{Character}} flaws. 
+
+\mbox{\Hypertarget{struct_character_ae6c5d149542cc58cacdf7dfaf7a00df8}\label{struct_character_ae6c5d149542cc58cacdf7dfaf7a00df8}} 
+\index{Character@{Character}!HitDice@{HitDice}}
+\index{HitDice@{HitDice}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{HitDice}{HitDice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Hit\+Dice}
+
+
+
+Current number of attack dice. 
+
+\mbox{\Hypertarget{struct_character_ac7c243af8aa2cedfb150932ee23512b9}\label{struct_character_ac7c243af8aa2cedfb150932ee23512b9}} 
+\index{Character@{Character}!Ideals@{Ideals}}
+\index{Ideals@{Ideals}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Ideals}{Ideals}}
+{\footnotesize\ttfamily char$\ast$ Ideals}
+
+
+
+Ideals description. 
+
+\mbox{\Hypertarget{struct_character_a3c15c425b3acd20f9472fea09f55b5ee}\label{struct_character_a3c15c425b3acd20f9472fea09f55b5ee}} 
+\index{Character@{Character}!Initiative@{Initiative}}
+\index{Initiative@{Initiative}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Initiative}{Initiative}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Initiative}
+
+
+
+Initiative stat, variable. 
+
+\mbox{\Hypertarget{struct_character_ab104f88988aaf3dbdc92809664999f20}\label{struct_character_ab104f88988aaf3dbdc92809664999f20}} 
+\index{Character@{Character}!Inspiration@{Inspiration}}
+\index{Inspiration@{Inspiration}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Inspiration}{Inspiration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Inspiration}
+
+
+
+Inspiration stat, variable. 
+
+\mbox{\Hypertarget{struct_character_adc43cf0bb90b3b6f2891f0b997c58f38}\label{struct_character_adc43cf0bb90b3b6f2891f0b997c58f38}} 
+\index{Character@{Character}!Inventory@{Inventory}}
+\index{Inventory@{Inventory}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Inventory}{Inventory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}} \mbox{\hyperlink{struct_inventory}{Inventory}}}
+
+
+
+Characters inventory. 
+
+\mbox{\Hypertarget{struct_character_aa9232d5add01105f586733f839a0c915}\label{struct_character_aa9232d5add01105f586733f839a0c915}} 
+\index{Character@{Character}!MaxHP@{MaxHP}}
+\index{MaxHP@{MaxHP}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{MaxHP}{MaxHP}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Max\+HP}
+
+
+
+Current maximum health points. 
+
+\mbox{\Hypertarget{struct_character_a64ff661d53cc294521ff0c386b47b4fa}\label{struct_character_a64ff661d53cc294521ff0c386b47b4fa}} 
+\index{Character@{Character}!Personality@{Personality}}
+\index{Personality@{Personality}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Personality}{Personality}}
+{\footnotesize\ttfamily char$\ast$ Personality}
+
+
+
+Personality description. 
+
+\mbox{\Hypertarget{struct_character_a4a5e83adb8b566558a472da6c776a870}\label{struct_character_a4a5e83adb8b566558a472da6c776a870}} 
+\index{Character@{Character}!Proficiency@{Proficiency}}
+\index{Proficiency@{Proficiency}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Proficiency}{Proficiency}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Proficiency}
+
+
+
+Proficiency stat, variable. 
+
+\mbox{\Hypertarget{struct_character_a82ac748a3d06d0ccfec79b7f4376bb40}\label{struct_character_a82ac748a3d06d0ccfec79b7f4376bb40}} 
+\index{Character@{Character}!Speed@{Speed}}
+\index{Speed@{Speed}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{Speed}{Speed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Speed}
+
+
+
+Speed stat, static. 
+
+\mbox{\Hypertarget{struct_character_acf0648919029be5940824de943daa000}\label{struct_character_acf0648919029be5940824de943daa000}} 
+\index{Character@{Character}!stat@{stat}}
+\index{stat@{stat}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{stat}{stat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_stats}{Stats}} stat}
+
+
+
+Characters stats. 
+
+\mbox{\Hypertarget{struct_character_a71ff2eb2c88dd92d5a3c0988517ce64d}\label{struct_character_a71ff2eb2c88dd92d5a3c0988517ce64d}} 
+\index{Character@{Character}!TempHP@{TempHP}}
+\index{TempHP@{TempHP}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{TempHP}{TempHP}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Temp\+HP}
+
+
+
+Temporary health points. 
+
+\mbox{\Hypertarget{struct_character_a19bf0f168358c868c49d787146a1546d}\label{struct_character_a19bf0f168358c868c49d787146a1546d}} 
+\index{Character@{Character}!TotDice@{TotDice}}
+\index{TotDice@{TotDice}!Character@{Character}}
+\doxysubsubsection{\texorpdfstring{TotDice}{TotDice}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} Tot\+Dice}
+
+
+
+Maximum number of attack dice. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h}{types.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,84 @@
+\hypertarget{character_8c}{}\doxysection{character.\+c File Reference}
+\label{character_8c}\index{character.c@{character.c}}
+
+
+This file keeps track of all character related functions.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}file.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inventory.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{character_8c_a7b640b7a6e2fc02624f3055905bf0a2e}{init\+\_\+char}} (\mbox{\hyperlink{struct_character}{Character}} $\ast$$\ast$character)
+\begin{DoxyCompactList}\small\item\em Initialize a character from a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{character_8c_af7b0081ead36d06289207e53eb8b0aa9}{write\+\_\+char}} (\mbox{\hyperlink{struct_character}{Character}} character)
+\begin{DoxyCompactList}\small\item\em Save a \mbox{\hyperlink{struct_character}{Character}} struct to a save file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} \mbox{\hyperlink{character_8c_a9205ad428cccc22a750690bae1d08779}{create\+\_\+char}} (\mbox{\hyperlink{struct_character}{Character}} character)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file keeps track of all character related functions. 
+
+\begin{DoxyAuthor}{Author}
+Grady White
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/2/2022
+\end{DoxyDate}
+Functions in this file are responsible for initializing character data from a file, writing character data to a file, and creating a new character. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{character_8c_a9205ad428cccc22a750690bae1d08779}\label{character_8c_a9205ad428cccc22a750690bae1d08779}} 
+\index{character.c@{character.c}!create\_char@{create\_char}}
+\index{create\_char@{create\_char}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{create\_char()}{create\_char()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} create\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}}}]{character }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{character_8c_a7b640b7a6e2fc02624f3055905bf0a2e}\label{character_8c_a7b640b7a6e2fc02624f3055905bf0a2e}} 
+\index{character.c@{character.c}!init\_char@{init\_char}}
+\index{init\_char@{init\_char}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{init\_char()}{init\_char()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} init\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}} $\ast$$\ast$}]{character }\end{DoxyParamCaption})}
+
+
+
+Initialize a character from a file. 
+
+Primary function for loading character data from a save file. Characters inventory and stats are loaded into the \mbox{\hyperlink{struct_character}{Character}} struct. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em character} & Pointer to a \mbox{\hyperlink{struct_character}{Character}} type pointer which contains all relevant character data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{character_8c_af7b0081ead36d06289207e53eb8b0aa9}\label{character_8c_af7b0081ead36d06289207e53eb8b0aa9}} 
+\index{character.c@{character.c}!write\_char@{write\_char}}
+\index{write\_char@{write\_char}!character.c@{character.c}}
+\doxysubsubsection{\texorpdfstring{write\_char()}{write\_char()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}} write\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_character}{Character}}}]{character }\end{DoxyParamCaption})}
+
+
+
+Save a \mbox{\hyperlink{struct_character}{Character}} struct to a save file. 
+
+Primary function for saving character data to a save file. Characters inventory and stats are saved according to the format in the profile.\+cht file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em character} & \mbox{\hyperlink{struct_character}{Character}} struct containing all current character data to save.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns SUCCESS if there are no errors, otherwise it returns errors according to the standard. 
+\end{DoxyReturn}

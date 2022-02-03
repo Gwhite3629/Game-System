@@ -1,0 +1,87 @@
+\hypertarget{struct_inventory}{}\doxysection{Inventory Struct Reference}
+\label{struct_inventory}\index{Inventory@{Inventory}}
+
+
+A struct that defines an inventory.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{struct_inventory_a6aca08b7b55b60ed1900be34b81482ac}{identity}}
+\begin{DoxyCompactList}\small\item\em Unique name of inventory. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_inventory_af4ea525e6f15623e4e9c6c6aa75f2077}{state}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_inventory}{Inventory}} status, indicating full, empty, busy, etc. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8h_aea163130bb2e297b558b16337ecaaceb}{Item}} \mbox{\hyperlink{struct_inventory_a794ae8b94b79dd4279be0067df155813}{slots}} \mbox{[}32\mbox{]}
+\begin{DoxyCompactList}\small\item\em Actual inventory storage. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_inventory_ae5dc6ffcd9b7605c7787791e40cc6bb0}{size}}
+\begin{DoxyCompactList}\small\item\em Current size of inventory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{struct_inventory_ab94de5de3b78965f8689984358af4af4}{full}} \mbox{[}32\mbox{]}
+\begin{DoxyCompactList}\small\item\em Bitmap indicating if a slot has an item or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct that defines an inventory. 
+
+Inventories are defined by an identifier and contain items. There are 32 slots in any inventory. Inventories have a state variable to indicate if they are full, empty, busy, or in some other state. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_inventory_ab94de5de3b78965f8689984358af4af4}\label{struct_inventory_ab94de5de3b78965f8689984358af4af4}} 
+\index{Inventory@{Inventory}!full@{full}}
+\index{full@{full}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{full}{full}}
+{\footnotesize\ttfamily bool full\mbox{[}32\mbox{]}}
+
+
+
+Bitmap indicating if a slot has an item or not. 
+
+\mbox{\Hypertarget{struct_inventory_a6aca08b7b55b60ed1900be34b81482ac}\label{struct_inventory_a6aca08b7b55b60ed1900be34b81482ac}} 
+\index{Inventory@{Inventory}!identity@{identity}}
+\index{identity@{identity}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{identity}{identity}}
+{\footnotesize\ttfamily char$\ast$ identity}
+
+
+
+Unique name of inventory. 
+
+\mbox{\Hypertarget{struct_inventory_ae5dc6ffcd9b7605c7787791e40cc6bb0}\label{struct_inventory_ae5dc6ffcd9b7605c7787791e40cc6bb0}} 
+\index{Inventory@{Inventory}!size@{size}}
+\index{size@{size}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint8\+\_\+t size}
+
+
+
+Current size of inventory. 
+
+\mbox{\Hypertarget{struct_inventory_a794ae8b94b79dd4279be0067df155813}\label{struct_inventory_a794ae8b94b79dd4279be0067df155813}} 
+\index{Inventory@{Inventory}!slots@{slots}}
+\index{slots@{slots}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{slots}{slots}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aea163130bb2e297b558b16337ecaaceb}{Item}} slots\mbox{[}32\mbox{]}}
+
+
+
+Actual inventory storage. 
+
+\mbox{\Hypertarget{struct_inventory_af4ea525e6f15623e4e9c6c6aa75f2077}\label{struct_inventory_af4ea525e6f15623e4e9c6c6aa75f2077}} 
+\index{Inventory@{Inventory}!state@{state}}
+\index{state@{state}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint16\+\_\+t state}
+
+
+
+\mbox{\hyperlink{struct_inventory}{Inventory}} status, indicating full, empty, busy, etc. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h}{types.\+h}}\end{DoxyCompactItemize}

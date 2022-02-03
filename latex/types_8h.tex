@@ -1,0 +1,225 @@
+\hypertarget{types_8h}{}\doxysection{types.\+h File Reference}
+\label{types_8h}\index{types.h@{types.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_saving_throws}{Saving\+Throws}}
+\begin{DoxyCompactList}\small\item\em A struct containing an entities saving throws. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_skills}{Skills}}
+\begin{DoxyCompactList}\small\item\em A struct containing an entities skills. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_types}{Types}}
+\begin{DoxyCompactList}\small\item\em A struct that indicates an items type. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_items}{Items}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an item. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_inventory}{Inventory}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an inventory. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_attack}{Attack}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an attack. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_stats}{Stats}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an entities stats. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_character}{Character}}
+\begin{DoxyCompactList}\small\item\em A struct that defines a character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}{uint}}~unsigned int
+\begin{DoxyCompactList}\small\item\em Unsigned int shortcut. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_gaa90cac659d18e8ef6294c7ae337f6b58}{SUCCESS}}~0
+\begin{DoxyCompactList}\small\item\em Success return code Indicates function has returned with no errors. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_ga65236f4ae2f2a8e8ef831bdbb632bac3}{ITEMERR}}~1
+\begin{DoxyCompactList}\small\item\em Item error return code Indicates function has encountered an error with an item type. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_ga489d0d535728ce4f63fca01f23941bfd}{DROPERR}}~2
+\begin{DoxyCompactList}\small\item\em Drop item error return code Indicates function has encountered a problem with a dropped item. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_gaf2ad04799d018f82b98ea78e48be6331}{VIEWERR}}~3
+\begin{DoxyCompactList}\small\item\em View error return code Indicates function has an error viewing an inventory. This suggests inventory corruption. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_ga6080016812bf04d6249087e62f227dff}{NOPARAM}}~4
+\begin{DoxyCompactList}\small\item\em No parameters return code Indicates that no or insufficient parameters were given for a function. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_gac88fdd3e49e082262423de8c908c37a3}{WARNFULL}}~5
+\begin{DoxyCompactList}\small\item\em Overflow prevention return code Indicates that there was an attempt to overflow a full inventory or buffer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_gaf6b9f7f08c05ed993ec774b6e685af15}{MEMERROR}}~6
+\begin{DoxyCompactList}\small\item\em Memory error return code Indicates a generic error with memory. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___error_codes_gad61451d198f68fe9a412b0db5eab64c5}{BADCHAR}}~7
+\begin{DoxyCompactList}\small\item\em Bad character return code Indicates an error with a character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602d}{Damage\+Type}} \mbox{\hyperlink{types_8h_a5dce68cf554de45e675a034bfd36d2f0}{Damage\+Type}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_types}{Types}} of damage. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_saving_throws}{Saving\+Throws}} \mbox{\hyperlink{types_8h_a602f9510ff478ac22ddd0bdff6dcdb99}{Saving\+Throws}}
+\begin{DoxyCompactList}\small\item\em A struct containing an entities saving throws. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_skills}{Skills}} \mbox{\hyperlink{types_8h_ac7093a7d1a76795538a8134b10d3bad0}{Skills}}
+\begin{DoxyCompactList}\small\item\em A struct containing an entities skills. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_types}{Types}} \mbox{\hyperlink{types_8h_a1a95da446dccbed1bf32d0cbb2c8c53f}{Type}}
+\begin{DoxyCompactList}\small\item\em A struct that indicates an items type. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_items}{Items}} \mbox{\hyperlink{types_8h_aea163130bb2e297b558b16337ecaaceb}{Item}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an item. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_inventory}{Inventory}} \mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an inventory. \end{DoxyCompactList}\item 
+typedef uint16\+\_\+t \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}}
+\item 
+typedef struct \mbox{\hyperlink{struct_attack}{Attack}} \mbox{\hyperlink{types_8h_a3aa9d82c41f2272c0254a70aea2c2f7c}{Attack}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an attack. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_stats}{Stats}} \mbox{\hyperlink{types_8h_ac1de6abcbdee05721138a59219fe9c94}{Stats}}
+\begin{DoxyCompactList}\small\item\em A struct that defines an entities stats. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_character}{Character}} \mbox{\hyperlink{types_8h_ad5210cad5f94bd0654d32e36a12323ab}{Character}}
+\begin{DoxyCompactList}\small\item\em A struct that defines a character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602d}{Damage\+Type}} \{ \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602daae7c23f3aa34e1c48bae132495512b1f}{Magic}}
+, \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602da529f9ed83ab5629953645901826698f3}{Melee}}
+, \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602da2d3a94a8bafdf7341d5eff2796682fd3}{Ranged}}
+ \}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_types}{Types}} of damage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}\label{types_8h_ad46b2ebcd4c426b06cda147ddc1001e7}} 
+\index{types.h@{types.h}!uint@{uint}}
+\index{uint@{uint}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{uint}{uint}}
+{\footnotesize\ttfamily \#define uint~unsigned int}
+
+
+
+Unsigned int shortcut. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{types_8h_a3aa9d82c41f2272c0254a70aea2c2f7c}\label{types_8h_a3aa9d82c41f2272c0254a70aea2c2f7c}} 
+\index{types.h@{types.h}!Attack@{Attack}}
+\index{Attack@{Attack}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Attack}{Attack}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_attack}{Attack}} \mbox{\hyperlink{struct_attack}{Attack}}}
+
+
+
+A struct that defines an attack. 
+
+Attacks are defined by a name, damage amount, and damage type. Damage values are before armor and regardless of attack type. \mbox{\hyperlink{struct_types}{Types}} are used to calculate resistances and weaknesses. \mbox{\Hypertarget{types_8h_ad5210cad5f94bd0654d32e36a12323ab}\label{types_8h_ad5210cad5f94bd0654d32e36a12323ab}} 
+\index{types.h@{types.h}!Character@{Character}}
+\index{Character@{Character}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Character}{Character}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_character}{Character}} \mbox{\hyperlink{struct_character}{Character}}}
+
+
+
+A struct that defines a character. 
+
+Characters are defined by many different structures. Each character has their own unique inventory. Characters also have their own stats and attacks. \mbox{\hyperlink{struct_stats}{Stats}} can be improved and attacks can be learned and improved.
+
+Variable stats are situation dependent and set depending on global environment changes as well as challenges to their ideals and character bonds. These are determined dynamically and changed with certain events defined elsewhere.
+
+Speed and armor class are determined at character creation. Armor class can be changed depending on certain training events. Speed is used to determine a characters ability to make sudden actions.
+
+Maximum health points can be increased through potions, training, magic and other systems. Temporary health points arise through external buffs or debuffs. Hit dice are the number of dice a character can roll to determine damage in a turn. Dice are lost through tiring. Dice are recovered up to total dice through rest.
+
+Personality, Ideals, Bonds, and Flaws are used to determine situational variables like character interactions and can cause bufs or debuffs. Personality is a simple description that other characters receive upon meeting. Ideals determine a characters affinity to certain factions and other personality traits. Bonds determine other characters who grant buffs. Flaws indicate specific personality traits that can cause debuffs. \mbox{\Hypertarget{types_8h_a5dce68cf554de45e675a034bfd36d2f0}\label{types_8h_a5dce68cf554de45e675a034bfd36d2f0}} 
+\index{types.h@{types.h}!DamageType@{DamageType}}
+\index{DamageType@{DamageType}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{DamageType}{DamageType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602d}{Damage\+Type}} \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602d}{Damage\+Type}}}
+
+
+
+\mbox{\hyperlink{struct_types}{Types}} of damage. 
+
+\mbox{\Hypertarget{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}\label{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}} 
+\index{types.h@{types.h}!err@{err}}
+\index{err@{err}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{err}{err}}
+{\footnotesize\ttfamily typedef uint16\+\_\+t \mbox{\hyperlink{types_8h_aa99d555b1aeca1efdd664acdb5f18a83}{err}}}
+
+\mbox{\Hypertarget{types_8h_ae9b1fb5248971a83651da66d486ed101}\label{types_8h_ae9b1fb5248971a83651da66d486ed101}} 
+\index{types.h@{types.h}!Inv@{Inv}}
+\index{Inv@{Inv}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Inv}{Inv}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_inventory}{Inventory}} \mbox{\hyperlink{types_8h_ae9b1fb5248971a83651da66d486ed101}{Inv}}}
+
+
+
+A struct that defines an inventory. 
+
+Inventories are defined by an identifier and contain items. There are 32 slots in any inventory. Inventories have a state variable to indicate if they are full, empty, busy, or in some other state. \mbox{\Hypertarget{types_8h_aea163130bb2e297b558b16337ecaaceb}\label{types_8h_aea163130bb2e297b558b16337ecaaceb}} 
+\index{types.h@{types.h}!Item@{Item}}
+\index{Item@{Item}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Item}{Item}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_items}{Items}} \mbox{\hyperlink{types_8h_aea163130bb2e297b558b16337ecaaceb}{Item}}}
+
+
+
+A struct that defines an item. 
+
+Each item has a struct defining its attributes such as name, description, type and id. Position is also tracked to indicate if an error in inventory management has occured. The item id flag is used to track generic items. \mbox{\Hypertarget{types_8h_a602f9510ff478ac22ddd0bdff6dcdb99}\label{types_8h_a602f9510ff478ac22ddd0bdff6dcdb99}} 
+\index{types.h@{types.h}!SavingThrows@{SavingThrows}}
+\index{SavingThrows@{SavingThrows}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{SavingThrows}{SavingThrows}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_saving_throws}{Saving\+Throws}} \mbox{\hyperlink{struct_saving_throws}{Saving\+Throws}}}
+
+
+
+A struct containing an entities saving throws. 
+
+Saving throws are minimum values needed on a dice roll to pass a given interaction.
+
+Example\+: A strength saving throw is used when a character needs to move an object \mbox{\Hypertarget{types_8h_ac7093a7d1a76795538a8134b10d3bad0}\label{types_8h_ac7093a7d1a76795538a8134b10d3bad0}} 
+\index{types.h@{types.h}!Skills@{Skills}}
+\index{Skills@{Skills}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Skills}{Skills}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_skills}{Skills}} \mbox{\hyperlink{struct_skills}{Skills}}}
+
+
+
+A struct containing an entities skills. 
+
+This struct contains flags indicating if the character has the skill \mbox{\Hypertarget{types_8h_ac1de6abcbdee05721138a59219fe9c94}\label{types_8h_ac1de6abcbdee05721138a59219fe9c94}} 
+\index{types.h@{types.h}!Stats@{Stats}}
+\index{Stats@{Stats}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Stats}{Stats}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_stats}{Stats}} \mbox{\hyperlink{struct_stats}{Stats}}}
+
+
+
+A struct that defines an entities stats. 
+
+\mbox{\hyperlink{struct_stats}{Stats}} are used for most interactions with the world. Most stats are used to calculate an entities direct actions, and saving throws are used for actions done to the entity. \mbox{\hyperlink{struct_skills}{Skills}} are simple flags and the characters stats indicate adeptness at those skills. \mbox{\Hypertarget{types_8h_a1a95da446dccbed1bf32d0cbb2c8c53f}\label{types_8h_a1a95da446dccbed1bf32d0cbb2c8c53f}} 
+\index{types.h@{types.h}!Type@{Type}}
+\index{Type@{Type}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_types}{Types}} \mbox{\hyperlink{types_8h_a1a95da446dccbed1bf32d0cbb2c8c53f}{Type}}}
+
+
+
+A struct that indicates an items type. 
+
+Each item has a type, these can be generic or specific depending on the item. Every item type has a name. Some items do not have all attributes and therefore have 0 in the respective attribute. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{types_8h_afce48e0416f4e1a1a8c79629bbbf602d}\label{types_8h_afce48e0416f4e1a1a8c79629bbbf602d}} 
+\index{types.h@{types.h}!DamageType@{DamageType}}
+\index{DamageType@{DamageType}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{DamageType}{DamageType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{types_8h_afce48e0416f4e1a1a8c79629bbbf602d}{Damage\+Type}}}
+
+
+
+\mbox{\hyperlink{struct_types}{Types}} of damage. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Magic@{Magic}!types.h@{types.h}}\index{types.h@{types.h}!Magic@{Magic}}}\mbox{\Hypertarget{types_8h_afce48e0416f4e1a1a8c79629bbbf602daae7c23f3aa34e1c48bae132495512b1f}\label{types_8h_afce48e0416f4e1a1a8c79629bbbf602daae7c23f3aa34e1c48bae132495512b1f}} 
+Magic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Melee@{Melee}!types.h@{types.h}}\index{types.h@{types.h}!Melee@{Melee}}}\mbox{\Hypertarget{types_8h_afce48e0416f4e1a1a8c79629bbbf602da529f9ed83ab5629953645901826698f3}\label{types_8h_afce48e0416f4e1a1a8c79629bbbf602da529f9ed83ab5629953645901826698f3}} 
+Melee&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ranged@{Ranged}!types.h@{types.h}}\index{types.h@{types.h}!Ranged@{Ranged}}}\mbox{\Hypertarget{types_8h_afce48e0416f4e1a1a8c79629bbbf602da2d3a94a8bafdf7341d5eff2796682fd3}\label{types_8h_afce48e0416f4e1a1a8c79629bbbf602da2d3a94a8bafdf7341d5eff2796682fd3}} 
+Ranged&\\
+\hline
+
+\end{DoxyEnumFields}
