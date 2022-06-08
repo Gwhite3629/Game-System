@@ -14,6 +14,7 @@
  */
 
 #include "types.h"
+#include "utils.h"
 #include "file.h"
 #include "inventory.h"
 
@@ -21,7 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
+#include <errno.h>
 
 /*!
  * @brief Initialize a character from a file
@@ -36,9 +37,10 @@
  *          errors according to the standard.
  * 
  */
-uint init_char(Character **character)
+err init_char(Character **character)
 {
-    char *locator;
+    err ret = SUCCESS;
+    char *locator = NULL;
     bool done = 0;
     uint i;
     uint index;
@@ -50,75 +52,30 @@ uint init_char(Character **character)
     fpos_t *char_end = NULL;
     fpos_t *cur_pos = NULL;
     
-    dat = malloc(64);
-    if (dat == NULL)
-    {
-        perror("memory error");
-        ret = MEMERROR;
-        goto fail;
-    }
-    memset(dat, 0, 64);
+    MEM(dat, 64, char);
     
-    char_start = malloc(sizeof(fpos_t));
-    if (char_start == NULL)
-    {
-        perror("memory error");
-        ret = MEMERROR;
-        goto fail;
-    }
-    memset(char_start, 0, sizeof(fpos_t));
+    MEM(char_start, 1, fpos_t);
 
-    char_end = malloc(sizeof(fpos_t));
-    if (char_end == NULL)
-    {
-        perror("memory error");
-        ret = MEMERROR;
-        goto fail;
-    }
-    memset(char_end, 0, sizeof(fpos_t));
+    MEM(char_end, 1, fpos_t);
 
-    cur_pos = malloc(sizeof(fpos_t));
-    if (cur_pos == NULL)
-    {
-        perror("memory error");
-        ret = MEMERROR;
-        goto fail;
-    }
-    memset(cur_pos, 0, sizeof(fpos_t));
+    MEM(cur_pos, 1, fpos_t);
 
-    locator = malloc(64);
-    if (locator == NULL)
-    {
-        perror("memory error");
-        ret = MEMERROR;
-        goto fail;
-    }
-    memset(locator, 0, 64);
+    MEM(locator, 64, char);
 
-    (*character) = malloc(sizeof(Character));
-    if (character == NULL)
-    {
-        perror("memory error");
-        ret = MEMERROR;
-        goto fail;
-    }
-    memset((*character), 0, sizeof(Character));
+    MEM((*character), 1, Character);
 
     // Get character positions
     printf("Select identifier:");
     scanf("%s", locator);
 
-    fd = fopen("profile.cht", "r");
-    if (fd == NULL)
-        goto fail;
-    find_event(fd, char_start, char_end, locator);
+    VALID(fd = fopen("profile.cht", "r"), FILE_CODE, FILE_OPEN);
+
+    CHECK(find_event(fd, char_start, char_end, locator));
 
     fsetpos(fd, char_start);
     // End character position
 
-    ret = alloc_char(character);
-    if (ret)
-        goto fail;
+    CHECK(ret = alloc_char(character));
 
     // Inventory
     fscanf(fd, "%s\n", (*character)->Inventory.identity);
@@ -230,10 +187,11 @@ uint init_char(Character **character)
         goto fail;
     } */
 
-    fclose(fd);
+    if(fd)
+        fclose(fd);
 
     return ret;
-fail:
+exit:
     if (fd)
         fclose(fd);
     
@@ -256,12 +214,11 @@ fail:
  *          errors according to the standard.
  * 
  */
-uint write_char(Character character)
+err write_char(Character character)
 {
-    uint ret = SUCCESS;
+    err ret = SUCCESS;
 
-    return ret;
-fail:
+exit:
     return ret;
 }
 

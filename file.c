@@ -15,7 +15,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 
+#include "utils.h"
+#include "types.h"
 
 /*!
  * @brief Searches a file for an event
@@ -36,18 +39,15 @@
  *          errors according to the standard.
  * 
  */
-int find_event(FILE *fd, fpos_t *prof_start, fpos_t *prof_end, char *locator)
+err find_event(FILE *fd, fpos_t *prof_start, fpos_t *prof_end, char *locator)
 {
+  err ret = SUCCESS;
   int flag = 0;
   int found = 0;
   char *buffer = NULL;
 
-  buffer = malloc(strlen(locator));
-  if (buffer == NULL) {
-    perror("memory error");
-    goto fail;
-  }
-  memset(buffer, 0, strlen(locator));
+  MEM(buffer, strlen(locator), char);
+
 // Prepares check based on user input profile selection
 // Iterates through file and exits when it has found the start of the profile
   do {
@@ -70,10 +70,7 @@ int find_event(FILE *fd, fpos_t *prof_start, fpos_t *prof_end, char *locator)
       // printf("buffer[flag]: %c, locator[flag]: %c, strlen(locator): %I64d, flag: %d, found: %d\n", buffer[flag], locator[flag], strlen(locator), flag, found);
   } while (found < 2);
 
+exit:
   free(buffer);
-  return 0;
-
-fail:
-  free(buffer);
-  return -1;
+  return ret;
 }

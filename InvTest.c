@@ -1,10 +1,13 @@
 #include "types.h"
 #include "inventory.h"
+#include "utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 
 int main(void) {
+    err ret = SUCCESS;
     uint8_t index = 0;
     Inv *construct;
     Inv *player;
@@ -14,25 +17,13 @@ int main(void) {
     Type tempw;
     Type tempf;
 
-    construct = malloc(sizeof(Inv));
-    if (construct == NULL) {
-        perror("memory error");
-        goto fail;
-    }
+    MEM(construct, 1, Inv)
     construct->identity = "Construct";
 
-    player = malloc(sizeof(Inv));
-    if (player == NULL) {
-        perror("memory error");
-        goto fail;
-    }
+    MEM(player, 1, Inv)
     player->identity = "Player";
 
-    chest = malloc(sizeof(Inv));
-    if (chest == NULL) {
-        perror("memory error");
-        goto fail;
-    }
+    MEM(chest, 1, Inv)
     chest->identity = "Chest";
 
     tempw.Name = "Longsword";
@@ -50,39 +41,38 @@ int main(void) {
     tempf.Regen = 1;
 
     tempi.Name = tempw.Name;
-    tempi.type_name = "Weapon";
     tempi.Type = tempw;
     tempi.Description = NULL;
     tempi.id = 1;
 
     tempii.Name = tempf.Name;
-    tempii.type_name = "Food";
     tempii.Type = tempf;
     tempii.Description = NULL;
     tempii.id = 2;
 
-    get_Item(construct, tempii);
-    get_Item(construct, tempi);
+    CHECK(get_Item(construct, tempii));
+    CHECK(get_Item(construct, tempi));
 
-    sel_Item(&index, construct);
-    take_Item(construct, chest, index);
-    sel_Item(&index, construct);
-    take_Item(construct, player, index);
-    sel_Item(&index, player);
-    take_Item(player, chest, index);
+    CHECK(sel_Item(&index, construct));
+    CHECK(take_Item(construct, chest, index));
+    CHECK(sel_Item(&index, construct));
+    CHECK(take_Item(construct, player, index));
+    CHECK(sel_Item(&index, player));
+    CHECK(take_Item(player, chest, index));
 
-    view_inv(construct);
-    view_inv(chest);
-    view_inv(player);
+    CHECK(view_inv(construct));
+    CHECK(view_inv(chest));
+    CHECK(view_inv(player));
 
-    free(chest);
-    free(player);
-    free(construct);
-    return 0;
-fail:
 
-    free(chest);
-    free(player);
-    free(construct);
-    return 1;
+exit:
+
+    if (chest)
+        free(chest);
+    if (player)
+        free(player);
+    if (construct)
+        free(construct);
+
+    return ret;
 }

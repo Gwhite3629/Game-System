@@ -3,10 +3,10 @@
 
 #include "types.h"
 
-uint init_char (Character **character);
+err init_char (Character **character);
 
-uint write_char (Character character);
+err write_char (Character character);
 
-uint create_char(Character character);
+err create_char(Character character);
 
 #endif // _CHARACTER_H_
