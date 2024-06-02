@@ -103,7 +103,7 @@
     }
 
 #define HANDLE_ERR(check, code) \
-    if (check != 0) { \
+    if ((check) != 0) { \
         fprintf(stderr, "%s: %s\n", code, strerror(errno)); \
         perror(code); \
         ret = THREAD_ERROR; \
@@ -112,17 +112,26 @@
 
 //  Memory alloc, checking, and allignment
 #define MEM(ptr, size, type) \
-    ptr = malloc(size*sizeof(type)); \
-    VALID(ptr, MEM_CODE, ALLOCATION_ERROR); \
-    memset(ptr, 0, size*sizeof(type));
+    (ptr) = malloc((size)*sizeof(type)); \
+    VALID((ptr), MEM_CODE, ALLOCATION_ERROR); \
+    memset((ptr), 0, (size)*sizeof(type));
+
+#define MEM_(ptr, size, type) \
+    (ptr) = realloc((ptr), (size)*sizeof(type)); \
+    VALID((ptr), MEM_CODE, ALLOCATION_ERROR);
+
+#define SFREE(ptr) \
+    if (ptr) \
+        free(ptr); \
+    ptr = NULL;
 
 //  Return condition check
 #define CHECK(ret) \
     if ((ret) != 0) \
         goto exit;
 
-#define CCHECK(c, s, v, err) \
-    if (c s v) \
+#define CCHECK(cond, err) \
+    if (cond) \
         ret = err; \
         goto exit;
 

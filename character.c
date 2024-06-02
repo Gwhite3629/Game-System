@@ -37,28 +37,21 @@
  *          errors according to the standard.
  * 
  */
-err init_char(Character **character)
+err_t init_char(Character **character)
 {
-    err ret = SUCCESS;
+    err_t ret = SUCCESS;
     char *locator = NULL;
     bool done = 0;
     uint i;
-    uint index;
+    uint index = 0;
     uint temp;
     char *dat;
-    uint ret = SUCCESS;
     FILE *fd;
     fpos_t *char_start = NULL;
     fpos_t *char_end = NULL;
     fpos_t *cur_pos = NULL;
     
     MEM(dat, 64, char);
-    
-    MEM(char_start, 1, fpos_t);
-
-    MEM(char_end, 1, fpos_t);
-
-    MEM(cur_pos, 1, fpos_t);
 
     MEM(locator, 64, char);
 
@@ -84,6 +77,7 @@ err init_char(Character **character)
     for (i = 0; i < (*character)->Inventory.size; i++)
     {
         fscanf(fd, "%u\n", &index);
+        printf("Index: %d\n", index);
         (*character)->Inventory.slots[index].position = index;
         (*character)->Inventory.full[index] = true;
         fscanf(fd, "%s\n", (*character)->Inventory.slots[index].Name);
@@ -170,27 +164,23 @@ err init_char(Character **character)
 
     // Attacks
     fscanf(fd, "%u\n", &temp);
+
+    MEM_((*character)->Attacks, temp, Attack);
+    (*character)->ANum = temp;
     
     for (i = 0; i < temp; i++)
     {
+        MEM((*character)->Attacks[i].Name, 64, char);
         fscanf(fd, "%s\n", (*character)->Attacks[i].Name);
         fscanf(fd, "%u\n", &((*character)->Attacks[i].Atk));
         fscanf(fd, "%u\n", &((*character)->Attacks[i].Type));
     }
-    fgetpos(fd, cur_pos);
-    printf("Cur: %d, End: %d\n", cur_pos, char_end);
-
-    /* if (cur_pos > char_end)
-    {
-        ret = BADCHAR;
-        printf("%d\n", ret);
-        goto fail;
-    } */
 
     if(fd)
         fclose(fd);
 
     return ret;
+
 exit:
     if (fd)
         fclose(fd);
@@ -214,9 +204,9 @@ exit:
  *          errors according to the standard.
  * 
  */
-err write_char(Character character)
+err_t write_char(Character character)
 {
-    err ret = SUCCESS;
+    err_t ret = SUCCESS;
 
 exit:
     return ret;

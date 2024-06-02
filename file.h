@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-err find_event(FILE *fd, fpos_t *char_start, fpos_t *char_end, char *locator);
+err_t find_event(FILE *fd, fpos_t *char_start, fpos_t *char_end, char *locator);
 
 #endif // _FILE_H_

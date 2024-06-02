@@ -9,7 +9,7 @@
 #define uint unsigned int
 
 //! err type
-typedef uint16_t err;
+#define err_t uint8_t
 
 /*!
  * @brief Types of damage
@@ -192,6 +192,7 @@ typedef struct Character
   char *Bonds;       //!< Character bonds
   char *Flaws;       //!< Character flaws
   Attack *Attacks;   //!< Character attacks
+  uint ANum;
 } Character;
 
 #endif // _TYPES_H_

@@ -39,9 +39,9 @@
  *          errors according to the standard.
  * 
  */
-err find_event(FILE *fd, fpos_t *prof_start, fpos_t *prof_end, char *locator)
+err_t find_event(FILE *fd, fpos_t *prof_start, fpos_t *prof_end, char *locator)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   int flag = 0;
   int found = 0;
   char *buffer = NULL;
@@ -71,6 +71,6 @@ err find_event(FILE *fd, fpos_t *prof_start, fpos_t *prof_end, char *locator)
   } while (found < 2);
 
 exit:
-  free(buffer);
+  SFREE(buffer);
   return ret;
 }

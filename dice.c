@@ -1,4 +1,5 @@
 #include "types.h"
+#include "utils.h"
 #include <stdlib.h>
 
 uint *roll(uint num, uint sides)
@@ -28,7 +29,7 @@ uint *roll(uint num, uint sides)
                 break;
             default:
                 free(result);
-                return NOPARAM;
+                return NO_PARAM;
         }
     }
     return result;

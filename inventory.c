@@ -17,6 +17,7 @@
 #include "inventory.h"
 
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
@@ -37,12 +38,12 @@
  *          errors according to the standard.
  *
  */
-err take_Item(Inv *source, Inv *destination, uint8_t index)
+err_t take_Item(Inv *source, Inv *destination, uint8_t index)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   int i = 0;
 
-  CCHECK(destination->size, >, 32, WARNFULL)
+  CCHECK(destination->size > 32, WARNFULL)
 
   for (i = 0; i < 32; i++)
   {
@@ -81,12 +82,12 @@ exit:
  *          errors according to the standard.
  *
  */
-err get_Item(Inv *destination, Item item)
+err_t get_Item(Inv *destination, Item item)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   int i = 0;
 
-  CCHECK(destination->size, >, 32, WARNFULL);
+  CCHECK(destination->size > 32, WARNFULL);
 
   for (i = 0; i < 32; i++)
   {
@@ -118,9 +119,9 @@ exit:
  *          errors according to the standard.
  *
  */
-err view_inv(Inv *source)
+err_t view_inv(Inv *source)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   int i = 0;
 
   for (i = 0; i < 32; i++)
@@ -151,9 +152,9 @@ exit:
  *          errors according to the standard.
  *
  */
-err sel_Item(uint8_t *index, Inv *source)
+err_t sel_Item(uint8_t *index, Inv *source)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   bool exit = 0;
   CHECK(view_inv(source));
 
@@ -191,9 +192,9 @@ exit:
  *          errors according to the standard.
  *
  */
-err del_Item(Inv *source, uint8_t index)
+err_t del_Item(Inv *source, uint8_t index)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   Item Nothing;
   Type null;
   null.Damage = 0;
@@ -222,9 +223,9 @@ exit:
  *          errors according to the standard.
  *
  */
-err alloc_char(Character **character)
+err_t alloc_char(Character **character)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   int i;
   
   MEM((*character)->Inventory.identity, 64, char);
@@ -248,12 +249,11 @@ err alloc_char(Character **character)
 
   MEM((*character)->Flaws, 64, char);
 
-  MEM((*character)->Attacks, 20, Attack);
+  MEM((*character)->Attacks, 1, Attack);
 
-  for (i = 0; i < 20; i++)
-  {
-    MEM((*character)->Attacks[i].Name, 64, char);
-  }
+  MEM((*character)->Attacks[0].Name, 64, char);
+
+  (*character)->ANum = 1;
   
   return ret;
 
@@ -273,42 +273,30 @@ exit:
  *          errors according to the standard.
  *
  */
-err clean_char(Character **character)
+err_t clean_char(Character **character)
 {
-  err ret = SUCCESS;
+  err_t ret = SUCCESS;
   uint i;
 
-  if ((*character)->Inventory.identity)
-    free((*character)->Inventory.identity);
+  SFREE((*character)->Inventory.identity);
   for (i = 0; i < 32; i++)
   {
     if ((*character)->Inventory.full[i])
     {
-      if ((*character)->Inventory.slots[i].Name)
-        free((*character)->Inventory.slots[i].Name);
-      if ((*character)->Inventory.slots[i].Type.Name)
-        free((*character)->Inventory.slots[i].Type.Name);
-      if ((*character)->Inventory.slots[i].Description)
-        free((*character)->Inventory.slots[i].Description);
+      SFREE((*character)->Inventory.slots[i].Name);
+      SFREE((*character)->Inventory.slots[i].Type.Name);
+      SFREE((*character)->Inventory.slots[i].Description);
     }
   }
-  if ((*character)->Personality)
-    free((*character)->Personality);
-  if ((*character)->Ideals)
-    free((*character)->Ideals);
-  if ((*character)->Bonds)
-    free((*character)->Bonds);
-  if ((*character)->Flaws)
-    free((*character)->Flaws);
-  for (i = 0; i < sizeof((*character)->Attacks) / sizeof(Attack); i++)
-  {
-    if ((*character)->Attacks[i].Name)
-      free((*character)->Attacks[i].Name);
+  SFREE((*character)->Personality);
+  SFREE((*character)->Ideals);
+  SFREE((*character)->Bonds);
+  SFREE((*character)->Flaws);
+  for (i = 0; i < (*character)->ANum; i++) {
+    SFREE((*character)->Attacks[i].Name);
   }
-  if ((*character)->Attacks)
-    free((*character)->Attacks);
-  if ((*character))
-    free((*character));
+  SFREE((*character)->Attacks);
+  SFREE((*character));
 
   return ret;
 }
