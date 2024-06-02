@@ -8,10 +8,13 @@ err_t fix_occlusion(void *fix, audio_state_t *audio)
 
     for (int i = 0; i < vals->size; i++) {
         t = audio->materials->lookup(audio->materials, vals->raw_data[i].string);
+        //printf("Target String: %s\n", vals->raw_data[i].string);
         if (t != NULL) {
+            //printf("Found\n");
             ((terrain_t *)t)->resonance = ((float *)vals->raw_data[i].data)[0];
             ((terrain_t *)t)->dampening = ((float *)vals->raw_data[i].data)[1];
         }
+        t = NULL;
     }
 
     return 0;
@@ -23,17 +26,22 @@ int main(void)
     float wood_vals[2] = {0.2f, 0.7f};
     float metal_vals[2] = {0.4f, 0.1f};
 
-    map_t occlusion_vals;
-    map_init(&occlusion_vals);
-    occlusion_vals.insert(&occlusion_vals, "Concrete", &concrete_vals);
-    occlusion_vals.insert(&occlusion_vals, "Wood", &wood_vals);
-    occlusion_vals.insert(&occlusion_vals, "Metal", &metal_vals);
+    map_t *occlusion_vals;
+    new(occlusion_vals, 1, map_t);
+    map_init(occlusion_vals);
+    //printf("------ CREATING USER MAP ------\n");
+    occlusion_vals->insert(occlusion_vals, "Concrete", &concrete_vals);
+    occlusion_vals->insert(occlusion_vals, "Metal", &metal_vals);
+    occlusion_vals->insert(occlusion_vals, "Wood", &wood_vals);
+    //printf("-------  DONE USER MAP  -------\n");
 
     occlusion_modifier_t mod;
-    mod.mod_data = &occlusion_vals;
+    mod.mod_data = occlusion_vals;
     mod.mod_func = &fix_occlusion;
 
     print_materials();
     occlusion_call(&mod);
     print_materials();
+exit:
+    return ret;
 }

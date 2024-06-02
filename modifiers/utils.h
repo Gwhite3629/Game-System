@@ -143,10 +143,11 @@ typedef int (*__compar_d_fn_t) (const void *, const void *, void *);
 //  Return condition check
 #define CHECK(F) \
     ret = F; \
-    if (ret != 0) \
+    if (ret != 0) {\
         fprintf(stderr, "%d: %s\n", ret, strerror(errno)); \
         fprintf(stderr, "%s: %s: %d\n", __FILE__, __func__, __LINE__); \
-        goto exit;
+        goto exit; \
+    }
 
 #define T_CHECK(F) \
     f_ret = F; \
