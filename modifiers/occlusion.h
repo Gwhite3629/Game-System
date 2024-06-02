@@ -22,6 +22,8 @@ typedef struct occlusion_modifier {
 
 err_t occlusion_call(occlusion_modifier_t *mod);
 
+void print_materials(void);
+
 extern audio_state_t audio_state;
 
 #endif // _OCCLUSION_H_

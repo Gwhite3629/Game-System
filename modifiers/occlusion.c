@@ -38,3 +38,13 @@ err_t occlusion_call(occlusion_modifier_t *mod)
 {
     return mod->mod_func(mod->mod_data, &state);
 }
+
+void print_materials(void)
+{
+    for (int i = 0; i < state.materials->size; i++) {
+        printf("Material:  %s\n\t", state.materials->raw_data[i].string);
+        printf("Density:   %5d\n\t", ((terrain_t *)state.materials->raw_data[i].data)->density);
+        printf("Resonance: %5f\n\t", ((terrain_t *)state.materials->raw_data[i].data)->resonance);
+        printf("Dampening: %5f\n\t", ((terrain_t *)state.materials->raw_data[i].data)->dampening);
+    }
+}

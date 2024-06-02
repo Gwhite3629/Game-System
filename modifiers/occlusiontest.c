@@ -24,7 +24,7 @@ int main(void)
     float metal_vals[2] = {0.4f, 0.1f};
 
     map_t occlusion_vals;
-    init_map(&occlusion_vals);
+    map_init(&occlusion_vals);
     occlusion_vals.insert(&occlusion_vals, "Concrete", &concrete_vals);
     occlusion_vals.insert(&occlusion_vals, "Wood", &wood_vals);
     occlusion_vals.insert(&occlusion_vals, "Metal", &metal_vals);
