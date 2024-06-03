@@ -6,6 +6,7 @@ err_t fix_occlusion(void *fix, audio_state_t *audio)
     map_t *vals = (map_t *)fix;
     void *t = NULL;
 
+    /*
     for (int i = 0; i < vals->size; i++) {
         t = audio->materials->lookup(audio->materials, vals->raw_data[i].string);
         //printf("Target String: %s\n", vals->raw_data[i].string);
@@ -16,7 +17,18 @@ err_t fix_occlusion(void *fix, audio_state_t *audio)
         }
         t = NULL;
     }
+    */
 
+    int iter = -1;
+    void ***pairs = map_union(vals, audio->materials);
+    while (pairs[++iter][0] != NULL) {
+        ((terrain_t *)pairs[iter][1])->resonance = ((float *)pairs[iter][0])[0];
+        ((terrain_t *)pairs[iter][1])->dampening = ((float *)pairs[iter][0])[1];
+        del(pairs[iter]);
+    }
+    del(pairs);
+
+exit:
     return 0;
 }
 

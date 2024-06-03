@@ -124,3 +124,38 @@ int map_init(map_t *m)
 exit:
 	return ret;
 }
+
+// Returns NULL terminated list of pairs of data whose key
+// Is the same between both maps. The pairs are ordered
+// According to the key value and are in the sequence of
+// [ref, dat], [ref, dat], where ref and dat are the corresponding
+// Data from each map.
+void ***map_union(map_t *ref, map_t *dat)
+{
+	void ***list = NULL;
+	int list_size = 0;
+	new(list, 1, void **);
+	new(list[0], 2, void *);
+	char *rs1 = NULL;
+	void *r1 = NULL;
+	void *d1 = NULL;
+
+	for (int i = 0; i < ref->size; i++) {
+		rs1 = ref->raw_data[i].string;
+		r1 = ref->lookup(ref, rs1);
+		d1 = dat->lookup(dat, rs1);
+		if (d1 != NULL) {
+			list[list_size][0] = r1;
+			list[list_size][1] = d1;
+			list_size++;
+			alt(list, list_size+1, void **);
+			new(list[list_size], 2, void *);
+		}
+	}
+
+	list[list_size][0] = NULL;
+	list[list_size][1] = NULL;
+
+exit:
+	return (ret == 0) ? list : NULL;
+}

@@ -61,11 +61,11 @@ extern int ret;
     ^ (F_CHUNK->flag & 2))
 
 #define new(ptr, size, type) \
-    ptr = (type *)alloc(global_heap, size*sizeof(type), #ptr); \
+    ptr = (type *)alloc(global_heap, (size)*sizeof(type), #ptr); \
     VALID(ptr, MEM_CODE, ALLOCATION_ERROR);
 
 #define alt(ptr, size, type) \
-    ptr = (type *)change(global_heap, ptr, size*sizeof(type)); \
+    ptr = (type *)change(global_heap, ptr, (size)*sizeof(type)); \
     VALID(ptr, MEM_CODE, ALLOCATION_ERROR);
 
 #define del(ptr) \

@@ -7,4 +7,4 @@ The goal of the modifier system is to allow a dynamic and easily programmable in
 
 Add actual threads and queues to the occlusion example to perform the actual callback.
 
-Add more map functions like unions on two maps to return a list of pairs. This would be used to simplify the process of performing an operation over a map according to another map as shown in the occlusion example
+Improve memory change function to do in-place allocations if possible, ie adding on to an existing region rather than moving it to a larger space

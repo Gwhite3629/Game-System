@@ -36,4 +36,6 @@ int map_insert(void *m, char *string, void *data);
 
 int map_remove(void *m, char *string);
 
+void ***map_union(map_t *ref, map_t *dat);
+
 #endif // _HASH_H_
