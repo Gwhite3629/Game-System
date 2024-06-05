@@ -30,5 +30,4 @@ occlusiontest.o: occlusiontest.c
 
 clean:
 	rm -f ${OCCLUSION} core*
-	rm -f *.o core*
-	rm -rf ../../*/*.o core*
+	rm -f ${OCCLUSIONOBS} core*
