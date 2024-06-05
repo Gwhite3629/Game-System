@@ -1,31 +1,28 @@
 CC=gcc
 LINK=gcc
 
-OCCLUSION=occlusiontest
+ENGINE=engine
 
-OCCLUSIONOBS=occlusiontest.o occlusion.o memory.o hash.o
+ENGINEOBS=engine.o
 
-LIBS=-lm
+LIBS=-lm -lpthread
 CFLAGS=-fPIC -D WINDOWS=0 -D LOGGING=1 -Werror -Wall -Wextra -pedantic
 DFLAGS=-fPIC -fanalyzer -D __CPP__=0 -D WINDOWS=0 -D LOGGING=1 -ggdb3 -Og -Werror -Wall -Wextra -pedantic -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op -Wmissing-include-dirs -Wredundant-decls -Wshadow -Wstrict-overflow=5 -Wundef -Wno-unused -Wno-variadic-macros -Wno-parentheses -fdiagnostics-show-option
 BFLAGS=-O3
 LFLAGS=-ggdb3 -Og
 OFLAGS=-fPIC -O3 -rdynamic
 
-all:${OCCLUSION}
+all:${ENGINE}
 
 all : CFLAGS += ${DFLAGS}
 
-${OCCLUSION}: ${OCCLUSIONOBS}
+${ENGINE}: ${ENGINEOBS}
 	${CC} ${CFLAGS} -o $@ $^
 
-memory.o: memory.c
-occlusion.o: occlusion.c
-occlusiontest.o: occlusiontest.c
-hash.o: hash.c
+engine.o: engine.c
 
 .PHONY : clean
 
 clean:
-	rm -f ${OCCLUSION} core*
+	rm -f ${ENGINE} core*
 	rm -f *.o core*

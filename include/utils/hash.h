@@ -7,8 +7,8 @@
 #include <errno.h>
 #include <string.h>
 
-#include "utils.h"
-#include "memory.h"
+#include <utils/utils.h>
+#include <utils/memory.h>
 
 typedef void **(*map_lookup_f)(void *, char *);
 typedef int    (*map_insert_f)(void *, char *, void *);

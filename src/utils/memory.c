@@ -5,8 +5,8 @@
 #include <string.h>
 #include <stdint.h>
 
-#include "utils.h"
-#include "memory.h"
+#include <utils/utils.h>
+#include <utils/memory.h>
 
 const char *stat_names[12] = {
     "UNALLOCATED",

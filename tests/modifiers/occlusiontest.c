@@ -1,5 +1,5 @@
-#include "occlusion.h"
-#include "types.h"
+#include <modifiers/occlusion.h>
+#include <utils/utils.h>
 
 err_t fix_occlusion(void *fix, audio_state_t *audio)
 {

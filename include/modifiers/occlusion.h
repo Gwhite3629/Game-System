@@ -1,7 +1,7 @@
 #ifndef _OCCLUSION_H_
 #define _OCCLUSION_H_
 
-#include "hash.h"
+#include "../utils/hash.h"
 
 typedef struct terrain {
     int density;

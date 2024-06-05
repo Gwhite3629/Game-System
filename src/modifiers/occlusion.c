@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "occlusion.h"
-#include "memory.h"
-#include "hash.h"
+#include <modifiers/occlusion.h>
+#include <utils/memory.h>
+#include <utils/hash.h>
 
 audio_state_t state;
 

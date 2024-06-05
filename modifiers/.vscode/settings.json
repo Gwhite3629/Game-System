@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        ".fantomasignore": "ignore",
-        "*.fs": "fsharp",
-        "occlusion.h": "c"
-    }
-}

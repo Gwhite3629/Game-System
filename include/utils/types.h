@@ -1,7 +1,7 @@
 #ifndef _MOD_TYPES_H_
 #define _MOD_TYPES_H_
 
-#include "utils.h"
+#include <utils/utils.h>
 
 // This structure is presented as an example of a threads internal state that
 // The complex_call function would have access to and pass to the complex

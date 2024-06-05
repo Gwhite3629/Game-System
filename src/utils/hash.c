@@ -4,9 +4,9 @@
 #include <errno.h>
 #include <string.h>
 
-#include "utils.h"
-#include "memory.h"
-#include "hash.h"
+#include <utils/utils.h>
+#include <utils/memory.h>
+#include <utils/hash.h>
 
 void print_map(hashmap_t *map, int size)
 {
