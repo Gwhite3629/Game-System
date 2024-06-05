@@ -10,14 +10,15 @@
 #include "utils.h"
 #include "memory.h"
 
-typedef void * (*map_lookup_f)(void *, char *);
+typedef void **(*map_lookup_f)(void *, char *);
 typedef int    (*map_insert_f)(void *, char *, void *);
 typedef int    (*map_remove_f)(void *, char *);
 
 typedef struct hashmap_t {
     char *string;
     uint32_t hash;
-	void *data;
+	int n_items;
+	void **data;
 } hashmap_t;
 
 typedef struct map {
@@ -30,12 +31,12 @@ typedef struct map {
 
 int map_init(map_t *m);
 
-void *map_lookup(void *m, char *string);
+void **map_lookup(void *m, char *string);
 
 int map_insert(void *m, char *string, void *data);
 
 int map_remove(void *m, char *string);
 
-void ***map_union(map_t *ref, map_t *dat);
+void ****map_union(map_t *ref, map_t *dat);
 
 #endif // _HASH_H_

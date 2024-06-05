@@ -20,11 +20,15 @@ err_t fix_occlusion(void *fix, audio_state_t *audio)
     */
 
     int iter = -1;
-    void ***pairs = map_union(vals, audio->materials);
+    int iter_inner = -1;
+    void ****pairs = map_union(vals, audio->materials);
     while (pairs[++iter][0] != NULL) {
-        ((terrain_t *)pairs[iter][1])->resonance = ((float *)pairs[iter][0])[0];
-        ((terrain_t *)pairs[iter][1])->dampening = ((float *)pairs[iter][0])[1];
+        while(pairs[iter][1][++iter_inner] != NULL) {
+            ((terrain_t *)pairs[iter][1][iter_inner])->resonance = ((float *)pairs[iter][0][0])[0];
+            ((terrain_t *)pairs[iter][1][iter_inner])->dampening = ((float *)pairs[iter][0][0])[1];
+        }
         del(pairs[iter]);
+        iter_inner = -1;
     }
     del(pairs);
 
@@ -37,6 +41,8 @@ int main(void)
     float concrete_vals[2] = {0.1f, 0.8f};
     float wood_vals[2] = {0.2f, 0.7f};
     float metal_vals[2] = {0.4f, 0.1f};
+    float plastic_vals[2] = {0.5f, 0.4f};
+    float air_vals[2] = {0.05f, 0.001f};
 
     map_t *occlusion_vals;
     new(occlusion_vals, 1, map_t);
@@ -45,14 +51,19 @@ int main(void)
     occlusion_vals->insert(occlusion_vals, "Concrete", &concrete_vals);
     occlusion_vals->insert(occlusion_vals, "Metal", &metal_vals);
     occlusion_vals->insert(occlusion_vals, "Wood", &wood_vals);
+    occlusion_vals->insert(occlusion_vals, "Plastic", &plastic_vals);
+    occlusion_vals->insert(occlusion_vals, "Air", &air_vals);
     //printf("-------  DONE USER MAP  -------\n");
 
-    occlusion_modifier_t mod;
-    mod.mod_data = occlusion_vals;
-    mod.mod_func = &fix_occlusion;
+    occlusion_modifier_t mod = {
+        occlusion_vals,
+        &fix_occlusion,
+    };
 
     print_materials();
+    printf("\n");
     occlusion_call(&mod);
+    printf("\n");
     print_materials();
 exit:
     return ret;

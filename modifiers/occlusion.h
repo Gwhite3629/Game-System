@@ -16,8 +16,8 @@ typedef struct audio_state {
 typedef err_t (*occlusion_callback_f) (void *, audio_state_t *);
 
 typedef struct occlusion_modifier {
-    occlusion_callback_f mod_func;
     void *mod_data;
+    occlusion_callback_f mod_func;
 } occlusion_modifier_t;
 
 err_t occlusion_call(occlusion_modifier_t *mod);
