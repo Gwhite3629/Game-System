@@ -8,6 +8,7 @@
         "utility": "cpp",
         "hash.h": "c",
         "memory.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "pthread.h": "c"
     }
 }
